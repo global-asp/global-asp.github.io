@@ -146,6 +146,18 @@ td {
   padding-left: 20px;
   padding-right: 20px; }
 
+.toc {
+  font-size: small;
+  padding-left: 25pt; }
+
+.tocbox {
+  /*   background-color: #FFFFC0; */
+  border: 1px solid black;
+  padding-top: 25pt;
+  width: 30%;
+  border-radius: 5px;
+  margin-bottom: 15px; }
+
 /**
  * Site header
  */
