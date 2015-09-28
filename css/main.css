@@ -142,9 +142,18 @@ pre {
   .icon > svg path {
     fill: #828282; }
 
+table {
+  width: 100%; }
+
 td {
   padding-left: 20px;
   padding-right: 20px; }
+
+.dl {
+  width: 200px; }
+
+.lic {
+  width: 125px; }
 
 .toc {
   font-size: small;
