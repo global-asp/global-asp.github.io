@@ -6,6 +6,8 @@
     <meta content="">
     <link rel="stylesheet" type="text/css"
       href="http://yegor256.github.io/tacit/tacit.min.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="img.css"/>
     <script src="asp_img_wordlist.js" type="text/javascript"></script>
     <script type="text/javascript">
       function contains(a, obj) {
@@ -18,27 +20,50 @@
         return false;
       }
 
-      function img_search() {
+      function img_search(args) {
         var input = window.key_input;
         var output = document.getElementById("output");
+        var message = document.getElementById("message");
         var result_array = [];
+        var counter = 0;
+        var keyword = input.value;
+        console.log(args)
+        if (args) {
+          keyword = args;
+        }
+        input.value = keyword;
+        input.select();
         for (var n = 0; n<img_index.length; n++) {
           key_array = img_index[n].k.split(",");
-          if (contains(key_array, input.value)) {
-            result_array.push("<img src='https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + img_index[n].i + ".jpg'/>");
+          if (contains(key_array, keyword)) {
+            img_splt = img_index[n].i.split("/");
+            img = img_splt[1];
+            idx = img_splt[0];
+            if (counter % 4 == 0 && counter != 0) {
+              result_array.push("        </tr>\n        <tr>\n          <td>\n            <a href=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + img_index[n].i + ".jpg\"><div data-content=\"Image " + img + " from story #" + idx + "\" class=\"image\"><img src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + img_index[n].i + ".jpg\" alt=\"\" /></div></a>" + "\n       </td>");
+            } else {
+              result_array.push("          <td>\n            <a href=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + img_index[n].i + ".jpg\"><div data-content=\"Image " + img + " from story #" + idx + "\" class=\"image\"><img src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + img_index[n].i + ".jpg\" alt=\"\" /></div></a>" + "\n       </td>");
+            }
+            counter++;
           }
         }
-        output.innerHTML = result_array.join("<br>");
+        if (counter == 0) {
+          message.innerHTML = "No results found for \"" + keyword + "\" -- try another keyword!";
+        } else {
+          message.innerHTML = "Your search for \"" + keyword + "\" returned " + counter.toString() + " results:";
+        }
+        output.innerHTML = "              <table>\n        <tr>\n" + result_array.join("\n") + "        </tr>\n      </table>";
       }
     </script>
   </head>
-  <body OnLoad="window.key_input.focus();">
+  <body onload="var geturl = location.href; if (/\?/.test(geturl) == true) { var args = /\?(.*)/.exec(geturl)[1]; img_search(args);} window.key_input.focus();">
     <h1>ASP Imagebank Explorer</h1>
     <h2>Search</h2>
       <form onsubmit="return false">
-        <input type="text" id="key_input" autocomplete="off" />
+        <input type="text" id="key_input" autocomplete="off" accesskey="s" />
         <input type="submit" value="Search" onclick="img_search()">
       </form>
+      <div id="message">&nbsp;</div>
     <h2>Gallery</h2>
       <div id="output">&nbsp;</div>
   </body>
