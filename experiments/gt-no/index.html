@@ -72,7 +72,7 @@
 
     <div id="final" class="modal" style="display:none;">
       <div class="modcontent">
-        <h2>Gjennomgå<a href="#" class="closemodal" title="Click here to close" onclick="overlay('final')">X</a></h2>
+        <h2>Gjennomgå<a href="#" class="closemodal" title="Klikk her for å lukke" onclick="overlay('final')">X</a></h2>
         <div id="review_table">&nbsp;</div>
 
         <div id="rev_msg">&nbsp;</div><br>
@@ -80,7 +80,7 @@
         <div id="submit_form" style="display:none">
           <form action="https://formspree.io/globalafricanstorybook@gmail.com" method="post">
             <input type="hidden" type="final" name="name" id="name_line">
-            <input type="text" id="email" name="_replyto" placeholder="Your email (optional)" oninput="localStorage.email=this.value" />
+            <input type="text" id="email" name="_replyto" placeholder="Din e-post (valgfritt)" oninput="localStorage.email=this.value" />
             <input id="thanks" type="hidden" name="_next" value="/experiments/gt-no/thanks.html" />
             <input type="hidden" name="_subject" id="subject_line" value="New submission!" />
             <input type="hidden" name="story_number" id="story_number" value="" />
