@@ -11,18 +11,18 @@
   <body onload="story_api()">
     <div id="container">
 <div id="frametop">
-    <h1>Global-ASP Translator</h1>
-    <div id="status_bar"><span id="permalink" style="display:none">&nbsp;</span><a href="#" onclick="overlay('about')">About</a><span class="dot"> • </span><a href="#" onclick="overlay('help')">Help</a><span class="dot"> • </span><a href="https://github.com/dohliam/gasp-translator" title="Project page on GitHub"><img src="https://cloud.githubusercontent.com/assets/9295750/10420174/4bff1bc4-7041-11e5-80d5-496a9cdd2672.png"></a><span id="nav_buttons" style="display:none"><span class="dot"> • </span><a href="#" id="prev" accesskey="p" title="Previous story" onclick="translate_story('prev')"><img src="previous.png"></a><span class="dot"> • </span><a href="#" accesskey="r" title="Random Story" onclick="random_story()"><img src="random.png"></a><span class="dot"> • </span><a href="#" id="next" accesskey="n" title="Next story" onclick="translate_story(0)"><img src="next.png"></a></span></div>
+    <h1>Global-ASP Translator Norsk <span style="font-variant:small-caps; font-style:italic;">BETA</span></h1>
+    <div id="status_bar"><span id="permalink" style="display:none">&nbsp;</span><a href="#" onclick="overlay('about')">Om</a><span class="dot"> • </span><a href="#" onclick="overlay('help')">Hjelp</a><span class="dot"> • </span><a href="https://github.com/dohliam/gasp-translator" title="Project page on GitHub"><img src="https://cloud.githubusercontent.com/assets/9295750/10420174/4bff1bc4-7041-11e5-80d5-496a9cdd2672.png"></a><span id="nav_buttons" style="display:none"><span class="dot"> • </span><a href="#" id="prev" accesskey="p" title="Forrige fortelling" onclick="translate_story('prev')"><img src="previous.png"></a><span class="dot"> • </span><a href="#" accesskey="r" title="Tilfeldig fortelling" onclick="random_story()"><img src="random.png"></a><span class="dot"> • </span><a href="#" id="next" accesskey="n" title="Neste fortelling" onclick="translate_story(0)"><img src="next.png"></a></span></div>
 </div>
 
 <div id="dynamic_content">
-    <div id="messages">Welcome to the Global-ASP Translator!<br>To get started, press the Translate! button below.</div>
-    <div id="translator_div" style="display:none">Translated by: <span class="editable" contenteditable="true" oninput="localStorage.a=this.innerHTML" id="translator" placeholder="Your name"></span></div>
+    <div id="messages">Velkommen til den Global-ASP Translator!<br>For å komme i gang, trykk på Oversett! knappen nedenfor.</div>
+    <div id="translator_div" style="display:none">Oversatt av: <span class="editable" contenteditable="true" oninput="localStorage.a=this.innerHTML" id="translator" placeholder="Ditt navn"></span></div>
 
     <div id="story_table">&nbsp;</div>
 
     <div id="translate_button">
-      <button type="button" accesskey="t" onclick="translate_story('first')">Translate!</button>
+      <button type="button" accesskey="t" onclick="translate_story('first')">Oversett!</button>
     </div>
     </div>
     <br>
@@ -36,7 +36,7 @@
       <textarea id="translation_output" rows="10"></textarea>
     </div>
     <div id="review_sub" class="tooltip" style="display:none">
-      <button id="rev_btn" type="button" accesskey="g" onclick="review_translation()">Review submission</button>
+      <button id="rev_btn" type="button" accesskey="g" onclick="review_translation()">Gjennomgå</button>
     </div>
 
     <div id="about" class="modal" style="display:none;" onclick="overlay('about')">
@@ -72,7 +72,7 @@
 
     <div id="final" class="modal" style="display:none;">
       <div class="modcontent">
-        <h2>Review<a href="#" class="closemodal" title="Click here to close" onclick="overlay('final')">X</a></h2>
+        <h2>Gjennomgå<a href="#" class="closemodal" title="Click here to close" onclick="overlay('final')">X</a></h2>
         <div id="review_table">&nbsp;</div>
 
         <div id="rev_msg">&nbsp;</div><br>
@@ -86,7 +86,7 @@
             <input type="hidden" name="story_number" id="story_number" value="" />
             <input type="hidden" name="story_language" id="story_language" value="" />
             <input type="hidden" name="story_translation" id="story_translation" value="" />
-            <input type="submit" value="Submit Translation">
+            <input type="submit" value="Send">
           </form>
         </div>
       </div>

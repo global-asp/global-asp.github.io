@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>Tusen takk!</title>
+    <link rel="stylesheet" type="text/css" href="https://yegor256.github.io/tacit/tacit.min.css"/>
+    <script type="text/javascript">
+      function return_to_story() {
+        var url = location.href;
+        if (/\?/.test(url) == true) {
+          var args = /\?(\d+)/.exec(url)[1];
+          var redir = document.getElementById("redirect")
+          redir.setAttribute("onclick", "window.location='https://global-asp.github.io/translator/?" + args + "'");
+        }
+      }
+    </script>
+  </head>
+  <body onload="return_to_story()">
+    <h1>Din oversettelse ble vellykket sendt.</h1>
+    <br>
+    <p>Takk for å bidra til <a href="https://global-asp.github.io/">Global African Storybook Project</a>!</p>
+    <p>Trykk på knappen under for å gå tilbake til nettstedet og <a href="https://global-asp.github.io/translator">oversette en annen fortelling</a>.</p>
+    <input id="redirect" type="button" onclick="window.location='https://global-asp.github.io/translator'" value="Go back">
+  </body>
+</html>

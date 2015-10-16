@@ -19,13 +19,13 @@ function translate_story(nav) {
   }
   idx = json[n].i;
   title = json[n].t;
-  attribution = json[n].a.replace(/^(.)\|(.*?)\|(.*)/, "* License: [CC-$1]\n* Text: $2\n* Illustration: $3\n* Language: English\n").replace(/,/g, ", ").replace(/CC\-b/, "CC-BY").replace(/CC\-n/, "CC-BY-NC");
+  attribution = json[n].a.replace(/^(.)\|(.*?)\|(.*)/, "* Lisens: [CC-$1]\n* Tekst: $2\n* Illustrasjoner: $3\n* Språk: English\n").replace(/,/g, ", ").replace(/CC\-b/, "CC-BY").replace(/CC\-n/, "CC-BY-NC");
 
   sections = json[n].s;
 
-  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:5%'></th><th style='width:30%'>original asp story</th><th style='width:65%'>your translation</th></tr><tr>\n          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td id=\"title\">Title: <i>" + title + "</i></td>\n          <td id=\"story_tgt_title\"><input type=\"text\" id=\"title_text\" /></td></tr><tr>\n";
+  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:5%'></th><th style='width:30%'>opprinnelige asp historie</th><th style='width:65%'>oversettelsen din</th></tr><tr>\n          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td id=\"title\">Tittel: <i>" + title + "</i></td>\n          <td id=\"story_tgt_title\"><input type=\"text\" id=\"title_text\" /></td></tr><tr>\n";
 
-  messages.innerHTML = "Now translating story #" + idx + " - <i>" + title + "</i> into: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Target language\"></span>";
+  messages.innerHTML = "Nå oversetter fortelling #" + idx + " - <i>" + title + "</i> til: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Målspråk\"></span>";
   var language = document.getElementById("language");
   language.setAttribute("oninput", "localStorage.l=this.innerHTML");
   if (localStorage.l) {
@@ -40,7 +40,7 @@ function translate_story(nav) {
 
   url = location.href.replace(/\?.*/, "");
   permalink.style.display = '';
-  permalink.innerHTML = "<a href=\"" + url + "?" + idx + "\">Permalink to this story</a><span class=\"dot\"> • </span>";
+  permalink.innerHTML = "<a href=\"" + url + "?" + idx + "\">Permalink til denne historien</a><span class=\"dot\"> • </span>";
   for (var i = 0; i < sections.length; i++) {
     page_number = i + 2;
     if (page_number < 10) {
@@ -49,7 +49,7 @@ function translate_story(nav) {
     content_div = content_div + "          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/" + page_number + ".jpg\"></td>\n          <td id=\"story_src_" + i + "\">" + json[n].s[i][page_number] + "</td>\n          <td><textarea id=\"story_tgt_" + i + "\"></textarea></td>        </tr>"
   }
 
-  translang = "Translation: " + translator.innerText + "<br>* Language: " + language.innerText;
+  translang = "Oversettelse: " + translator.innerText + "<br>* Language: " + language.innerText;
 
   story_table = document.getElementById("story_table");
   attribution_row = "          <td></td>\n          <td id=\"attribution\">" + attribution.replace(/\n/g, "<br>") + "</td>\n          <td>" + attribution.replace(/\n/g, "<br>").replace(/Language: .*/, translang) + "</td>        </tr>";
@@ -66,7 +66,7 @@ function translate_story(nav) {
 
   get_storage(idx);
 
-  document.getElementById("rev_btn").innerHTML = "Review submission";
+  document.getElementById("rev_btn").innerHTML = "Gjennomgå";
   document.getElementById("review_sub").style.display = '';
 
 }
@@ -98,7 +98,7 @@ function review_translation() {
   translation_output = document.getElementById("translation_output");
   var container = document.getElementById("container");
 
-  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:25%'></th><th style='width:65%'>your translation</th></tr><tr>\n          <td><img class=\"revthumb\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td><em>" + tr_title + "</em></td></tr><tr>\n";
+  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:25%'></th><th style='width:65%'>oversettelsen din</th></tr><tr>\n          <td><img class=\"revthumb\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td><em>" + tr_title + "</em></td></tr><tr>\n";
 
   format_content = "# " + tr_title + "\n\n##\n";
   for (var i = 0; i < number_of_sections; i++) {
@@ -114,7 +114,7 @@ function review_translation() {
     }
 
   }
-  translang = "Translation: " + translator.innerText + "\n* Language: " + language.innerText;
+  translang = "Oversettelse: " + translator.innerText + "\n* Språk: " + language.innerText;
 
   translation_output.value = format_content + attribution.replace(/<br>/g, "\n").replace(/Language: .*/, translang);
 
@@ -157,15 +157,15 @@ function random_story() {
 function prepare_submission() {
   var sub = document.getElementById("subject_line");
   var rev = document.getElementById("review_sub");
-  sub.value = 'New translation: #' + window.idx + ', "' + window.title + '" into ' + window.language.innerHTML + " by " + window.translator.innerText;
+  sub.value = 'Ny oversettelse: #' + window.idx + ', "' + window.title + '" til ' + window.language.innerHTML + " av " + window.translator.innerText;
   window.name_line.value = window.translator.innerText;
   window.story_number.value = window.idx;
   window.story_language.value = window.language.innerHTML;
   window.story_translation.value = window.translation_output.value;
   rev.style.width = "80%";
   rev.classList.remove("tooltip");
-  window.rev_btn.innerHTML = "Continue reviewing";
-  window.rev_msg.innerHTML = "If you are satisfied with your translation, press the submit button below to send it for inclusion in the Global-ASP project:";
+  window.rev_btn.innerHTML = "Fortsett å gjennomgå";
+  window.rev_msg.innerHTML = "Hvis du er fornøyd med din oversettelse, trykk på send-knappen nedenfor for å sende den for inkludering i Global-ASP-prosjektet:";
 }
 
 function overlay(w) {
