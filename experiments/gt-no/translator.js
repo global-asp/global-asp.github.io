@@ -23,9 +23,9 @@ function translate_story(nav) {
 
   sections = json[n].s;
 
-  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:5%'></th><th style='width:30%'>opprinnelige asp historie</th><th style='width:65%'>oversettelsen din</th></tr><tr>\n          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td id=\"title\">Tittel: <i>" + title + "</i></td>\n          <td id=\"story_tgt_title\"><input type=\"text\" id=\"title_text\" /></td></tr><tr>\n";
+  content_div = "      <table id=\"content_table\">\n        <tr><th style='width:5%'></th><th style='width:30%'>opprinnelig ASP historie</th><th style='width:65%'>oversettelsen din</th></tr><tr>\n          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/01.jpg\"></td>\n          <td id=\"title\">Tittel: <i>" + title + "</i></td>\n          <td id=\"story_tgt_title\"><input type=\"text\" id=\"title_text\" /></td></tr><tr>\n";
 
-  messages.innerHTML = "Nå oversetter fortelling #" + idx + " - <i>" + title + "</i> til: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Målspråk\"></span>";
+  messages.innerHTML = "Nå oversettes fortelling #" + idx + " - <i>" + title + "</i> til: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Målspråk\"></span>";
   var language = document.getElementById("language");
   language.setAttribute("oninput", "localStorage.l=this.innerHTML");
   if (localStorage.l) {
@@ -52,7 +52,7 @@ function translate_story(nav) {
   translang = "Oversettelse: " + translator.innerText + "<br>* Language: " + language.innerText;
 
   story_table = document.getElementById("story_table");
-  attribution_row = "          <td></td>\n          <td id=\"attribution\">" + attribution.replace(/\n/g, "<br>") + "</td>\n          <td>" + attribution.replace(/\n/g, "<br>").replace(/Language: .*/, translang) + "</td>        </tr>";
+  attribution_row = "          <td></td>\n          <td id=\"attribution\">" + attribution.replace(/\n/g, "<br>") + "</td>\n          <td>" + attribution.replace(/\n/g, "<br>").replace(/Språk: .*/, translang) + "</td>        </tr>";
   story_table.innerHTML = content_div + attribution_row + "      </table>";
 
   next_story = parseInt(n) + 1;
@@ -165,7 +165,7 @@ function prepare_submission() {
   rev.style.width = "80%";
   rev.classList.remove("tooltip");
   window.rev_btn.innerHTML = "Fortsett å gjennomgå";
-  window.rev_msg.innerHTML = "Hvis du er fornøyd med din oversettelse, trykk på send-knappen nedenfor for å sende den for inkludering i Global-ASP-prosjektet:";
+  window.rev_msg.innerHTML = "Hvis du er fornøyd med oversettelsen din, trykk på send-knappen nedenfor for å sende den for inkludering i Global-ASP-prosjektet:";
 }
 
 function overlay(w) {
