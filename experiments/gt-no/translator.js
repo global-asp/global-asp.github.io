@@ -19,7 +19,7 @@ function translate_story(nav) {
   }
   idx = json[n].i;
   title = json[n].t;
-  attribution = json[n].a.replace(/^(.)\|(.*?)\|(.*)/, "* Lisens: [CC-$1]\n* Tekst: $2\n* Illustrasjoner: $3\n* Språk: English\n").replace(/,/g, ", ").replace(/CC\-b/, "CC-BY").replace(/CC\-n/, "CC-BY-NC");
+  attribution = json[n].a.replace(/^(.)\|(.*?)\|(.*)/, "* Lisens: [CC-$1]\n* Tekst: $2\n* Illustrasjoner: $3\n* Språk: norsk\n").replace(/,/g, ", ").replace(/CC\-b/, "CC-BY").replace(/CC\-n/, "CC-BY-NC");
 
   sections = json[n].s;
 
@@ -28,11 +28,11 @@ function translate_story(nav) {
   messages.innerHTML = "Nå oversettes fortelling #" + idx + " - <i>" + title + "</i> til: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Målspråk\"></span>";
   var language = document.getElementById("language");
   language.setAttribute("oninput", "check_lang()");
-  if (localStorage.l) {
-    language.innerText = localStorage.l;
+  if (localStorage["trno_l"]) {
+    language.innerText = localStorage["trno_l"];
   }
-  if (localStorage.a) {
-    translator.innerText = localStorage.a;
+  if (localStorage["trno_a"]) {
+    translator.innerText = localStorage["trno_a"];
   }
   translator_div.style.display = '';
   translate_button.style.display = 'none';
@@ -51,7 +51,7 @@ function translate_story(nav) {
     content_div = content_div + "          <td><img class=\"thumbnail\" src=\"https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/" + idx + "/" + page_number + ".jpg\"></td>\n          <td id=\"story_src_" + i + "\">" + json[n].s[i][page_number] + "</td>\n          <td><textarea id=\"story_tgt_" + i + "\"></textarea></td>        </tr>"
   }
 
-  translang = "Oversettelse: " + translator.innerText + "<br>* Language: " + language.innerText;
+  translang = "Oversettelse: " + translator.innerText + "<br>* Språk: " + language.innerText;
 
   story_table = document.getElementById("story_table");
   attribution_row = "          <td></td>\n          <td id=\"attribution\">" + attribution.replace(/\n/g, "<br>") + "</td>\n          <td>" + attribution.replace(/\n/g, "<br>").replace(/Språk: .*/, translang) + "</td>        </tr>";
@@ -77,18 +77,18 @@ function translate_story(nav) {
 function get_storage(idx) {
   number_of_sections = parseInt(document.getElementById("number_of_sections").innerHTML);
   tr_title = document.getElementById("title_text");
-  tr_title.setAttribute("oninput", "localStorage.tr_" + idx + "_title=this.value");
-  if (localStorage["tr_" + idx + "_title"]) {
-    tr_title.value = localStorage["tr_" + idx + "_title"];
+  tr_title.setAttribute("oninput", "localStorage['trno_" + idx + "_title']=this.value");
+  if (localStorage["trno_" + idx + "_title"]) {
+    tr_title.value = localStorage["trno_" + idx + "_title"];
   }
   for (var i = 0; i < number_of_sections; i++) {
-    window["story_tgt_" + i].setAttribute("oninput", "localStorage.tr_" + idx + "_s_" + i + "=this.value");
-    if (localStorage["tr_" + idx + "_s_" + i]) {
-      window["story_tgt_" + i].value = localStorage["tr_" + idx + "_s_" + i];
+    window["story_tgt_" + i].setAttribute("oninput", "localStorage[trno_" + idx + "_s_" + i + "]=this.value");
+    if (localStorage["trno_" + idx + "_s_" + i]) {
+      window["story_tgt_" + i].value = localStorage["trno_" + idx + "_s_" + i];
     }
   }
-  if (localStorage["email"]) {
-    document.getElementById("email").value = localStorage["email"];
+  if (localStorage["trno_email"]) {
+    document.getElementById("email").value = localStorage["trno_email"];
   }
 }
 
@@ -119,11 +119,11 @@ function review_translation() {
   }
   translang = "Oversettelse: " + translator.innerText + "\n* Språk: " + language.innerText;
 
-  translation_output.value = format_content + attribution.replace(/<br>/g, "\n").replace(/Language: .*/, translang);
+  translation_output.value = format_content + attribution.replace(/<br>/g, "\n").replace(/Språk: .*/, translang);
 
   document.getElementById("submit_form").style.display = '';
 
-  format_attribution = "<ul>" + attribution + "* " + translang.replace(/\n/g, "<br>") + "</ul>";
+  format_attribution = "<ul>" + attribution.replace(/Språk: .*/, "") + translang.replace(/\n/g, "<br>") + "</ul>";
   format_attribution = format_attribution.replace(/\* (.*?)</g, "<li>$1</li><").replace(/<br>/g, "");
 
   var review_table = document.getElementById("review_table");
@@ -134,7 +134,7 @@ function review_translation() {
   overlay('final');
 
   prepare_submission();
-  
+
 }
 
 function story_api() {
@@ -202,7 +202,7 @@ function esc_out() {
 
 function check_lang() {
   var language = document.getElementById("language");
-  localStorage.l=language.innerHTML;
+  localStorage["trno_l"]=language.innerHTML.replace(/\n|<br>/g, "");
   language.style["background-color"] = "#fff";
   var iso = "";
   var full_name = "";
