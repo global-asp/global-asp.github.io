@@ -27,7 +27,7 @@ function translate_story(nav) {
 
   messages.innerHTML = "Nå oversettes fortelling #" + idx + " - <i>" + title + "</i> til: <span class=\"editable\" contenteditable=\"true\" id=\"language\" placeholder=\"Målspråk\"></span>";
   var language = document.getElementById("language");
-  language.setAttribute("oninput", "localStorage.l=this.innerHTML");
+  language.setAttribute("oninput", "check_lang()");
   if (localStorage.l) {
     language.innerText = localStorage.l;
   }
@@ -37,6 +37,8 @@ function translate_story(nav) {
   translator_div.style.display = '';
   translate_button.style.display = 'none';
   nav_buttons.style.display = 'inline-block';
+
+  check_lang();
 
   url = location.href.replace(/\?.*/, "");
   permalink.style.display = '';
@@ -65,6 +67,7 @@ function translate_story(nav) {
   document.getElementById("number_of_sections").innerHTML = sections.length;
 
   get_storage(idx);
+  tr_title.focus();
 
   document.getElementById("rev_btn").innerHTML = "Gjennomgå";
   document.getElementById("review_sub").style.display = '';
@@ -150,7 +153,7 @@ function story_api() {
 }
 
 function random_story() {
-  rand = Math.floor(Math.random()*364);
+  rand = Math.floor(Math.random()*json.length);
   translate_story(rand);
 }
 
@@ -193,6 +196,40 @@ function esc_out() {
       help.style.display = "none";
       final.style.visibility = "hidden";
       final.style.display = "none";
+    }
+  }
+}
+
+function check_lang() {
+  var language = document.getElementById("language");
+  localStorage.l=language.innerHTML;
+  language.style["background-color"] = "#fff";
+  var iso = "";
+  var full_name = "";
+  var msg_bar = document.getElementById("translated_msg");
+  msg_bar.style.display = 'none';
+  for (var i = 0; i < names.length; i++) {
+    for (var n = 0; n < names[i].l.length; n++) {
+      if (language.innerHTML.toLowerCase() == names[i].l[n].toLowerCase()) {
+        iso = names[i].l[0];
+        full_name = names[i].l[1];
+      }
+    }
+    if (iso != "") {
+      for (var i = 0; i < gasp.length; i++) {
+        if (gasp[i][iso]) {
+          idx_array = gasp[i][iso].split(",");
+          for (var n = 0; n < idx_array.length; n++) {
+            if (idx_array[n] == idx) {
+              language.style["background-color"] = "#FF8C8E";
+              tr_msg = "This story (#" + idx + ") has already been translated into " + full_name;
+              msg_format = "<span style=\"background-color:#FFFFC2;\">" + tr_msg + "</span>";
+              msg_bar.innerHTML = msg_format;
+              msg_bar.style.display = '';
+            }
+          }
+        }
+      }
     }
   }
 }
