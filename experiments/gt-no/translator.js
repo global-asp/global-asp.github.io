@@ -119,7 +119,7 @@ function review_translation() {
   }
   translang = "Oversettelse: " + translator.innerText + "\n* Språk: " + language.innerText;
 
-  translation_output.value = format_content + attribution.replace(/<br>/g, "\n").replace(/Språk: .*/, translang);
+  translation_output.value = format_content + attribution.replace(/<br>/g, "\n").replace(/Språk: .*/, translang).replace(/Språk:/, "Language:").replace(/Oversettelse:/, "Translation:").replace(/Lisens:/, "License:").replace(/Tekst:/, "Text:").replace(/Illustrasjoner:/, "Illustration:");
 
   document.getElementById("submit_form").style.display = '';
 
@@ -164,6 +164,7 @@ function prepare_submission() {
   window.name_line.value = window.translator.innerText;
   window.story_number.value = window.idx;
   window.story_language.value = window.language.innerHTML;
+  window.md_title.value = window.idx + "_" + window.title_text.value.toLowerCase().replace(/ /g, "-").replace(/[\!\?,\.:'¿¡`]/g, "") + ".md";
   window.story_translation.value = window.translation_output.value;
   rev.style.width = "80%";
   rev.classList.remove("tooltip");
