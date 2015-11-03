@@ -40,7 +40,7 @@ function translate_story(nav) {
 
   check_lang();
 
-  url = location.href.replace(/\?.*/, "");
+  url = location.href.replace(/[#\?\!]+.*/, "");
   permalink.style.display = '';
   permalink.innerHTML = "<a href=\"" + url + "?" + idx + "\">Permalink to this story</a><span class=\"dot\"> • </span>";
   for (var i = 0; i < sections.length; i++) {
@@ -69,7 +69,7 @@ function translate_story(nav) {
   get_storage(idx);
   tr_title.focus();
 
-  document.getElementById("rev_btn").innerHTML = "Review submission";
+  document.getElementById("rev_btn").innerHTML = '<a href="#modal-review" class="call-modal" onclick="review_translation()">Review submission</a>';
   document.getElementById("review_sub").style.display = '';
 
 }
@@ -131,8 +131,6 @@ function review_translation() {
 
   document.getElementById("thanks").value = "/translator/thanks.html?" + idx;
 
-  overlay('final');
-
   prepare_submission();
   
 }
@@ -168,37 +166,8 @@ function prepare_submission() {
   window.story_translation.value = window.translation_output.value;
   rev.style.width = "80%";
   rev.classList.remove("tooltip");
-  window.rev_btn.innerHTML = "Continue reviewing";
+  window.rev_btn.innerHTML = '<a href="#modal-review" class="call-modal" onclick="review_translation()">Continue reviewing</a>';
   window.rev_msg.innerHTML = "If you are satisfied with your translation, press the submit button below to send it for inclusion in the Global-ASP project:";
-}
-
-function overlay(w) {
-  el = "";
-  if (w == "about") {
-    el = document.getElementById("about");
-  } else if (w == "help") {
-    el = document.getElementById("help");
-  } else if (w == "final") {
-    el = document.getElementById("final");
-  }
-  el.style.display = (el.style.display == "none") ? "" : "none";
-  el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-}
-
-function esc_out() {
-  window.onkeydown = function(event) {
-    if (event.keyCode === 27) {
-      about = document.getElementById("about");
-      help = document.getElementById("help");
-      final = document.getElementById("final");
-      about.style.visibility = "hidden";
-      about.style.display = "none";
-      help.style.visibility = "hidden";
-      help.style.display = "none";
-      final.style.visibility = "hidden";
-      final.style.display = "none";
-    }
-  }
 }
 
 function check_lang() {
