@@ -206,6 +206,14 @@ td {
 #btn_div {
   padding: 5px 0 5px 0; }
 
+.small_btn {
+  background: darkred;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px; }
+
 /**
  * Site header
  */
