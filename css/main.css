@@ -178,11 +178,60 @@ td {
   font-weight: bold;
   font-size: small; }
 
-.big_btn {
+.small_btn {
+  background: darkred;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px; }
+
+.resource_btn {
+  background: #1F5FA3;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px; }
+
+a.button {
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px; }
+
+a.darkblue {
+  display: block;
+  color: white;
+  background: #1F5FA3;
+  border: 1px solid gray; }
+
+a.darkred {
+  color: white;
+  background: darkred;
+  border: 1px solid gray; }
+
+a.medium {
+  font-weight: bold;
+  font-size: large; }
+
+a.large {
+  font-size: x-large; }
+
+a.bigwhite {
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  font-size: x-large;
+  background: white;
+  border: 1px solid gray; }
+
+a.big_btn {
   font-size: xx-large;
   font-weight: bold;
   color: #fff;
-  cursor: pointer;
+  text-decoration: none;
   border-radius: 10px;
   padding: 10px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
@@ -202,17 +251,6 @@ td {
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
   /* IE6-9 */ }
-
-#btn_div {
-  padding: 5px 0 5px 0; }
-
-.small_btn {
-  background: darkred;
-  color: white;
-  font-weight: bold;
-  font-size: large;
-  border-radius: 5px;
-  padding: 5px; }
 
 /**
  * Site header
