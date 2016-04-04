@@ -252,6 +252,9 @@ a.big_btn {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
   /* IE6-9 */ }
 
+td {
+  text-align: center; }
+
 /**
  * Site header
  */
