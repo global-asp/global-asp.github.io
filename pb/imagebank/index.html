@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>PB Imagebank Explorer</title>
+    <link rel="stylesheet" type="text/css" href="https://yegor256.github.io/tacit/tacit.min.css"/>
+    <link rel="stylesheet" type="text/css" href="img.css"/>
+    <script src="imgsearch.js" type="text/javascript"></script> 
+    <script src="js/pb_img_wordlist.js" type="text/javascript"></script> 
+    <script type="text/javascript">
+
+      fileadded = "";
+      lang = "en";
+      keyword = "";
+
+      quick_api();
+
+    </script>
+  </head>
+  <body onload="page_loaded()">
+    <h1>PB Imagebank Explorer</h1>
+    <h2>Search</h2>
+      <form onsubmit="return false">
+        <table class="layout"><tr><td>
+        <input type="text" id="key_input" autocomplete="off" accesskey="s" />
+      </td><td>
+<!--      <select id="lang_switcher" onchange="loadwordlist(this.value);">
+        <option value="en">English</option>
+      </select>-->
+      </td></tr><tr><td>
+        <input type="submit" value="Search" onclick="img_search()">
+    </td></tr></table>
+      </form>
+
+      <div id="message">&nbsp;</div>
+    <h2>Gallery</h2>
+      <div id="output">&nbsp;</div>
+  </body>
+</html>
