@@ -160,10 +160,10 @@ td {
   padding-left: 25pt; }
 
 .tocbox {
-  /*   background-color: #FFFFC0; */
-  border: 1px solid black;
+  border: 3px solid black;
   padding-top: 25pt;
-  width: 30%;
+  width: 40%;
+  line-height: 1;
   border-radius: 5px;
   margin-bottom: 15px; }
 
