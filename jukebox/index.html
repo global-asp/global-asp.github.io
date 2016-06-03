@@ -13,11 +13,11 @@
     <script src="player.js" type="text/javascript"></script>
     <script src="json-no.js" type="text/javascript"></script>
     <script type="text/javascript">
-      window.current_track = 0;
-      window.switched = false;
+      fileadded = "";
+      load_page();
     </script>
   </head>
-  <body onload="load_player(window.current_track)">
+  <body onload="window.stories = window['stories_' + lang]; load_player(window.current_track)">
     <h1>Storybook Jukebox</h1>
 
     <div id="player_container">
