@@ -35,7 +35,7 @@ function create_player(p) {
 
   image = '<img src="https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/' + idx + '/' + page_number + '.jpg" />\n\n';
 
-  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟]/g, "");
+  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟？！]/g, "");
   mp3 = 'https://raw.githubusercontent.com/global-asp/gasp-audio/master/' + lang + '/' + idx + '_' + title_format + '/mp3/' + page_number + '.mp3';
   controls = "        <audio autoplay id='audio' onended='play_next_chapter()'><source src='" + mp3 + "' type='audio/mpeg'></audio>";
 
