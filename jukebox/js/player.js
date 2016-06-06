@@ -211,3 +211,24 @@ function load_lang() {
     fileadded = wl;
   }
 }
+
+function show_attribution() {
+  audio_stop();
+  attribution = window.p[4];
+
+  title = window.p[1];
+  reader = attribution[0];
+  text = attribution[1];
+  illustration = attribution[2];
+  translation = attribution[3];
+  license = attribution[4];
+  if (license == "n") {
+    license = "CC-BY-NC";
+  } else {
+    license = "CC-BY";
+  }
+
+  a_div = document.getElementById("attribution");
+  format_attribution = "<h2>" + title + "</h2>\n<p><b>Read by: " + reader + "</b></p>\n<ul>\n<li>Author: " + text + "</li>\n<li>Illustrator: " + illustration + "</li>\n<li>Translator: " + translation + "</li>\n<li>License: " + license + "</li></ul>";
+  a_div.innerHTML = format_attribution;
+}
