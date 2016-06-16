@@ -1,0 +1,1 @@
+var stories_es = [{"n":"0253","t":"Mi libro ilustrado@Una chica@Un pájaro@Un león@Un gato","a":["Espen Stranger-Johannessen","Oku Modesto","Rob Owen, Marleen Visser, Katrien Coetzer, Wiehan de Jager, Karen Lilje, Catherine Groenewald, Alice Toich","Espen Stranger-Johannessen","b"],"b":"My Picture Book@A girl@A bird@A lion@A cat"}];
