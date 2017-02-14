@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://dohliam.github.io/dropin-minimal-css/vendor/tacit.min.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-left: 24px;
+      }
+      .pagebreak {
+        padding: 25px;
+        page-break-after: always;
+      }
+    </style>
+
+    <title>LCB Source - Source stories from the Little Cree Books collection in Markdown format</title>
+  </head>
+  <body>
+    <h1 id="lcb-source">LCB Source</h1>
+    <h2 id="source-stories-from-the-little-cree-books-collection-in-markdown-format">Source stories from the Little Cree Books collection in Markdown format</h2>
+    
+    <p><a href="https://github.com/global-asp/lcb-source">This repository</a> makes available the source texts of stories from <a href="http://littlecreebooks.com/">Little Cree Books</a> in Markdown format. The stories are written in Plains Cree, Swampy Cree, and English.</p>
+    
+    <p>The collection is significant because it is, as far as we are aware, the first and only collection of open-licensed stories in an Indigenous Canadian language. It thus represents an incredibly valuable and lasting contribution to human knowledge whose preservation will not be threatened by the restrictions of copyright.</p>
+    
+    <p>All of the source texts have been extracted from pdfs available on the <a href="http://littlecreebooks.com/">Little Cree Books</a> website. The markdown files in this repo provide data for many other projects, as well as making possible the creation of bilingual storybooks in many languages.</p>
+    
+    <h3 id="structure">Structure</h3>
+    
+    <p>Each story in the repository is tagged with a two- or three-letter code that represents the language it is written in (e.g. <code>crk</code> for Plains Cree). A list of available languages and their codes is <a href="#languages">below</a>.</p>
+    
+    <p>Each story has also been assigned a four digit number for ease of identification. There is a full list of the stories by number <a href="#stories">below</a>.</p>
+    
+    <p>In each folder in the repository you will find a series of files containing various versions of the text of the story in Markdown format, as well as a <code>README</code> file with information about the story. There are separate files for each available language and orthography (i.e., syllabics or romanization for <code>crk</code> and <code>csw</code>, and English for <code>en</code>).</p>
+    
+    <p>The orthography of each file is indicated by the special three-letter codes <code>cas</code> and <code>sro</code> (for <em>Canadian Aboriginal Syllabics</em> and <em>Standard Roman Orthography</em> respectively) at the end of the filename. For example, the Plains Cree version of the story #0002 <em>Little Bear’s Day</em> is available in two different files in the story folder:</p>
+    
+    <ul>
+      <li><code>0002_little-bears-day_cas.md</code> (Canadian Aboriginal Syllabics)</li>
+      <li><code>0002_little-bears-day_sro.md</code> (Standard Roman Orthography)</li>
+    </ul>
+    
+    <h3 id="format">Format</h3>
+    
+    <p>The extracted source text of all stories has been provided here in Markdown format. See <a href="https://github.com/global-asp/global-asp#source-format">here</a> for specific details about the format used.</p>
+    
+    <p>A sequence of two hashes <code>##</code> on a separate line indicates a page break.</p>
+    
+    <p>The last section of each story file contains attribution and license information.</p>
+    
+    <p>Editing of the story content has been kept to a minimum and for the most part the stories are presented exactly as they were written. Corrections other than obvious errors of orthography or traces of the conversion process should be directed to the Little Cree Books website directly.</p>
+    
+    <h3 id="languages">Languages</h3>
+    
+    <p>The Little Cree Books stories are currently available in 3 different languages and two different orthographies. This repository attempts to provide the source text for all of these stories in machine- and human-readable Markdown format.</p>
+    
+    <p>Below is a key to the languages covered by this repository and their <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> or <a href="http://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> codes.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>ISO code</th>
+          <th>Language Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>crk</code></td>
+          <td>Plains Cree</td>
+        </tr>
+        <tr>
+          <td><code>csw</code></td>
+          <td>Swampy Cree</td>
+        </tr>
+        <tr>
+          <td><code>en</code></td>
+          <td>English</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3 id="orthography">Orthography</h3>
+    
+    <p>The texts of each story are available in both of the two orthographies for writing Cree, namely syllabics and romanization. As described above, the orthography of each file is indicated in the filename by one of the following codes:</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Orthography</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>cas</code></td>
+          <td>Canadian Aboriginal Syllabics</td>
+        </tr>
+        <tr>
+          <td><code>sro</code></td>
+          <td>Standard Roman Orthography</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>The original source pdfs provided by Little Cree Books are not always available in syllabics, however all of the stories included here are available in both syllabics and SRO. The SRO orthography of the original stories has been converted into syllabics using a <a href="https://github.com/dohliam/cree-transliteration">custom made transliteration tool</a> designed for this purpose. Please file an issue if you find any errors in the syllabics conversion.</p>
+    
+    <p>If you would like to use the transliteration tool to convert between syllabics and SRO, you can find it <a href="https://dohliam.github.io/transliteration/cree/">here</a>.</p>
+
+<p><div class="pagebreak"></div></p>
+    
+    <h3 id="stories">Stories</h3>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Level</th>
+          <th>Syllabics</th>
+          <th>Standard Roman Orthography (SRO)</th>
+          <th>English</th>
+          <th>Languages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0001</td>
+          <td>n/a</td>
+          <td>ᐯᔭᐠ ᐁᐦᐃᐢᐸᔨᐠ ᐅᐦᒋ ᑳᐸᐹᒥᐱᐦᐋᐟ ᑭᐦᐁᐤ</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/02/Flying-Eagle-book-SRO.pdf">peyak ehispayik ohci kâpapâmipihât kihew</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/02/Flying-Eagle.pdf">Flying Eagle</a></td>
+          <td>Plains Cree, English</td>
+        </tr>
+        <tr>
+          <td>0002</td>
+          <td>Level 1</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/02/Little-Bears-Day-maskosis-ok%C3%AEsik%C3%A2m-syllabics.pdf">ᒪᐢᑯᓯᐢ ᐅᑮᓯᑳᒼ</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/02/Little-Bears-Day-maskosis-ok%C3%AEsik%C3%A2w-SRO.pdf">maskosis okîsikâm</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/02/Little-Bears-Day-maskosis-ok%C3%AEsik%C3%A2m-press-quality.pdf">Little Bear’s Day</a></td>
+          <td>Plains Cree, English</td>
+        </tr>
+        <tr>
+          <td>0003</td>
+          <td>n/a</td>
+          <td>ᒪᐢᑯᓯᐢ ᓂᐢᑕᒼ ᑳᑕᑯᐦᑌᐟ ᐆᑌᓈᐦᐠ</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/06/New-in-Town-SRO.pdf">maskosis nistam kâtakohtet ôtenâhk</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/06/New-in-Town-book-final.pdf">New in Town</a></td>
+          <td>Plains Cree, English</td>
+        </tr>
+        <tr>
+          <td>0004</td>
+          <td>Level 2</td>
+          <td>ᐊᐢᑭᐤ ᒣᐢᑯᒋᐸᔪᐏᓇ</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/01/Grade-1-The-Seasons-Kitten.pdf">askiw meskocipayowina</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2013/01/Grade-1-The-Seasons-Kitten.pdf">The Seasons</a></td>
+          <td>Plains Cree, English</td>
+        </tr>
+        <tr>
+          <td>0005</td>
+          <td>Level 2</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Grandmother-Fox-n-dialect.pdf">ᓅᑯᒼ ᒫᑫᓯᐤ</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Grandmother-Fox-n-dialect.pdf">nōkom mākēsiw</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Grandmother-Fox-n-dialect.pdf">Grandmother Fox</a></td>
+          <td>Swampy Cree, English</td>
+        </tr>
+        <tr>
+          <td>0006</td>
+          <td>Level 2</td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Little-Fox-n-dialect.pdf">ᐊᐱᐢᒋᒫᑫᓰᓯᐢ</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Little-Fox-n-dialect.pdf">apiscimākēsīsis</a></td>
+          <td><a href="http://littlecreebooks.com/wp-content/uploads/2014/04/Little-Fox-n-dialect.pdf">Little Fox</a></td>
+          <td>Swampy Cree, English</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3 id="about-little-cree-books">About Little Cree Books</h3>
+    
+    <blockquote>
+      <p>The <a href="http://littlecreebooks.com/">Little Cree Books</a> above are the first in what we hope will become a large collection of online books designed for early Cree readers. Please check out the <a href="http://littlecreebooks.com/about-the-project/">About the Project</a> section of this website to learn more about how we hope to develop this collection. The books are currently only available in the Plains Cree dialect, but we hope to offer them in a variety of other dialects as soon as we can. We hope that educators and parents will make liberal use of these resources. Please display them on your classroom SMARTboards, print and/or photocopy them for your students/children, encourage children to read them online, or use them in other creative ways. We simply ask that users do not sell the books. Creative Commons copyright licensing <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a> applies to all of the books, unless otherwise noted. Click <a href="http://foter.com/blog/files//2012/11/Foter.com_infographic_CC.jpg">here</a> for more information on Creative Commons licensing.</p>
+    </blockquote>
+
+<p><div class="pagebreak"></div></p>
+    
+    <h3 id="levels">Levels</h3>
+    
+    <p>The Little Cree Books are leveled reading resources developed for early Cree readers. They are designed using Alberta Education’s curricular guidelines.</p>
+    
+    <ul>
+      <li><strong>Level 1</strong>: Kindergarten</li>
+      <li><strong>Level 2</strong>: Grade 1</li>
+      <li><strong>Level 3</strong>: Grade 2</li>
+      <li><strong>Level 4</strong>: Grade 3</li>
+      <li><strong>Level 5</strong>: Grade 4</li>
+      <li><strong>Level 6</strong>: Grade 5</li>
+      <li><strong>Level 7</strong>: Grade 6</li>
+    </ul>
+    
+    <h3 id="links">Links</h3>
+    
+    <ul>
+      <li><a href="http://littlecreebooks.com/">nehiyawasinahikanisa</a> (Little Cree Books) where you can download the original PDFs of these stories</li>
+      <li><a href="https://github.com/global-asp/lcb-imagebank">LCB Imagebank</a> - A repository containing all the freely-licensed images that accompany these texts</li>
+      <li><a href="https://github.com/global-asp/global-lcb">Global LCB</a> - A project to translate the source texts into as many world languages as possible</li>
+    </ul>
+    
+    <h3 id="license">License</h3>
+    
+    <p>All stories in this repository have been released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a> license, allowing them to be shared and modified freely for non-commercial purposes.</p>
+
+
+  </body>
+</html>
