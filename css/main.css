@@ -11,10 +11,9 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 300;
   color: #111;
   background-color: #fdfdfd;
   -webkit-text-size-adjust: 100%; }
